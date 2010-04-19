@@ -3,27 +3,29 @@ body {
     text-align: right;
 }
 
-
 .projects {
     color: #252525;
     display: block;
     float: right;
-    width: 350px;
     text-align: right;
 }
-
 
 .projects > a {
     color: green;
     display: block;
-    padding: 2em;
+    width: 250px;
+    padding: 1em;
+    border: solid 2px #ffffff;
+}
+
+.projects > a:hover {
+    border: solid 2px #252525;
 }
 
 .projects > a:nth-child(2n+1) {
     text-align: left;
     background: #f2f2f2;
 }
-
 
 .projects > a > h2 {
     color: #252525;
