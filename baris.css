@@ -1,5 +1,4 @@
 body {
-    background: #000000 url('paris.jpg') no-repeat top right;
     padding: 2em;
     text-align: right;
     color: #f2f2f2;
@@ -7,14 +6,14 @@ body {
 
 h1 { color: #f2f2f2; }
 
-.projects {
+.boxes {
     display: block;
     float: right;
     text-align: right;
     font-size: 1.3em;
 }
 
-.projects > a {
+.boxes > a {
     color: green;
     display: block;
     width: 350px;
@@ -23,19 +22,19 @@ h1 { color: #f2f2f2; }
     border: solid 1px #252525;
 }
 
-.projects > a:hover {
+.boxes > a:hover {
     background: #929292;
 }
 
-.projects > a:nth-child(2n+1) {
+.boxes > a:nth-child(2n+1) {
     text-align: left;
 }
 
-.projects > a > h2 {
+.boxes > a > h2 {
     color: #252525;
 }
 
-.projects > a > p.lang {
+.boxes > a > p.lang {
     font-size: 0.7em;
     color: #252525;
     padding:0;

@@ -21,7 +21,8 @@ let page_header_templ user =
   "<head><title> " ^ title ^ "</title>" ^
   "<link href=\"reset.css\" rel=\"stylesheet\" type=\"text/css\" />" ^
   "<link href=\"baris.css\" rel=\"stylesheet\" type=\"text/css\" /></head>" ^
-  "<body><div class=\"projects\"><h1>" ^ title ^ "</h1>"
+  "<link href=\"projects.css\" rel=\"stylesheet\" type=\"text/css\" /></head>" ^
+  "<body><div class=\"boxes\"><h1>" ^ title ^ "</h1>"
 
 let page_footer_templ = "</div></body></html>"
 
