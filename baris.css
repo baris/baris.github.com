@@ -34,4 +34,10 @@ h1 { color: #f2f2f2; }
 .projects > a > h2 {
     color: #252525;
 }
+
+.projects > a > p.lang {
+    font-size: 0.7em;
+    color: #252525;
+    padding:0;
+}
     
