@@ -18,10 +18,12 @@ let api_url = "http://github.com/api/v2/json"
 let page_header_templ user =
   let title = user ^ "' github projects" in
   "<html>" ^
-  "<head><title> " ^ title ^ "</title>" ^
+  "<head>" ^ 
+  "<title> " ^ title ^ "</title>" ^
   "<link href=\"reset.css\" rel=\"stylesheet\" type=\"text/css\" />" ^
-  "<link href=\"baris.css\" rel=\"stylesheet\" type=\"text/css\" /></head>" ^
-  "<link href=\"projects.css\" rel=\"stylesheet\" type=\"text/css\" /></head>" ^
+  "<link href=\"baris.css\" rel=\"stylesheet\" type=\"text/css\" />" ^
+  "<link href=\"projects.css\" rel=\"stylesheet\" type=\"text/css\" />" ^
+  "</head>" ^
   "<body><div class=\"boxes\"><h1>" ^ title ^ "</h1>"
 
 let page_footer_templ = "</div></body></html>"
