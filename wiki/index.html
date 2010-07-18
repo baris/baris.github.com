@@ -565,7 +565,7 @@ http://stackoverflow.com/questions/2112256/emacs-custom-command-line-argument/21
  (add-to-list 'command-switch-alist '(&quot;-my_argument&quot; . my-argument-fn))
 }}}</pre>
 </div>
-<div title="French" creator="BarisMetin" modifier="BarisMetin" created="201005311326" changecount="1">
+<div title="French" creator="BarisMetin" modifier="BarisMetin" created="201005311326" modified="201007181712" changecount="2">
 <pre>''Les radios fran&#231;aises sur l'internet''
 
 http://www.listenlive.eu/france.html
@@ -574,10 +574,9 @@ http://www.listenlive.eu/france.html
 
 ''Mod&#232;les de lettre en fran&#231;ais'':
 
-Il y a beaucoup exemples de courrier pour la vie tous les jour sur http://www.lettres-utiles.com/ 
+http://www.lettres-utiles.com/ 
 
-Un autre site web pour cher des exemples: http://admi.net/epv/modeles.html
-
+http://admi.net/epv/modeles.html
 
 -----
 
@@ -682,7 +681,27 @@ This will run the sync:
 * Many small tips at [http://www.osxnotes.com OSXNotes.com]
 </pre>
 </div>
-<div title="PageTemplate" creator="BarisMetin" modifier="BarisMetin" created="200701130013" modified="201005311342" changecount="1" server.page.revision="200708091512" server.host="tiddlythemes.com/empties/Blackicity.html" server.type="file">
+<div title="OpenSSH" creator="BarisMetin" modifier="BarisMetin" created="201007181704" modified="201007181708" changecount="6">
+<pre>* Use a proxy host for ssh
+{{{
+&gt; cat ~/.ssh/config
+Host                 proxyhost
+HostName             proxyhost.test.com
+User                 user_on_proxyhost
+ForwardAgent         no
+ForwardX11           no
+ForwardX11Trusted    no
+Compression          yes
+
+Host                 *.some.domain.name
+ProxyCommand         ssh -q proxyhost nc %h %p -s proxyhost
+GSSAPIAuthentication no
+
+Host                 *
+User                 baris
+}}}</pre>
+</div>
+<div title="PageTemplate" creator="BarisMetin" modifier="BarisMetin" created="200701130013" modified="201005311342" server.type="file" server.host="tiddlythemes.com/empties/Blackicity.html" server.page.revision="200708091512" changecount="1">
 <pre>&lt;!--{{{--&gt;
 
 &lt;div id='topMenu' refresh='content' tiddler='MainMenu'&gt;&lt;/div&gt;
@@ -779,7 +798,7 @@ I'm not sure I need to list them here. Basically all I need is Pardus and I'll h
 [[http://www.scifihifi.com/cocoalicious/ Cocoalicious]]: Del.icio.us client.
 </pre>
 </div>
-<div title="StyleSheet" creator="BarisMetin" modifier="BarisMetin" created="200701130013" modified="201005311342" changecount="3" server.page.revision="200708091512" server.host="tiddlythemes.com/empties/Blackicity.html" server.type="file">
+<div title="StyleSheet" creator="BarisMetin" modifier="BarisMetin" created="200701130013" modified="201005311342" server.type="file" server.host="tiddlythemes.com/empties/Blackicity.html" server.page.revision="200708091512" changecount="3">
 <pre>/*{{{*/
 /*Blackicity Theme for TiddlyWiki*/
 /*Design and CSS by Saq Imtiaz*/
