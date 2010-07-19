@@ -681,7 +681,7 @@ This will run the sync:
 * Many small tips at [http://www.osxnotes.com OSXNotes.com]
 </pre>
 </div>
-<div title="OpenSSH" creator="BarisMetin" modifier="BarisMetin" created="201007181704" modified="201007181708" changecount="6">
+<div title="OpenSSH" creator="BarisMetin" modifier="YourName" created="201007181704" modified="201007191349" changecount="8">
 <pre>* Use a proxy host for ssh
 {{{
 &gt; cat ~/.ssh/config
@@ -699,6 +699,11 @@ GSSAPIAuthentication no
 
 Host                 *
 User                 baris
+}}}
+
+* Local port forwarding
+{{{
+ssh -N -T -L 5901:remote_host:5901 user@remote_host
 }}}</pre>
 </div>
 <div title="PageTemplate" creator="BarisMetin" modifier="BarisMetin" created="200701130013" modified="201005311342" server.type="file" server.host="tiddlythemes.com/empties/Blackicity.html" server.page.revision="200708091512" changecount="1">
@@ -746,6 +751,62 @@ $overlapping_trigger$ LANGUAGE plpgsql;
 CREATE TRIGGER overlapping_trigger BEFORE INSERT OR UPDATE ON test_events FOR EACH ROW EXECUTE PROCEDURE overlapping_trigger();
 }}}
 </pre>
+</div>
+<div title="RabbitMQ" creator="YourName" modifier="YourName" created="201007191547" modified="201007191549" changecount="4">
+<pre>
+* Pika, AMQP library for Python http://github.com/tonyg/pika
+{{{
+easy_install pika
+}}}
+
+* managing virtual hosts
+{{{
+rabbitmqctl add_vhost myvhost
+rabbitmqctl set_permission -p myvhost guest &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;
+}}}
+
+* producer_test.py
+{{{
+import pika
+import asyncore
+
+conn = pika.AsyncoreConnection(pika.ConnectionParameters(&quot;localhost&quot;, virtual_host=&quot;myvhost&quot;))
+ch = conn.channel()
+ch.exchange_declare(type=&quot;direct&quot;, exchange=&quot;test_x&quot;, durable=True, auto_delete=False)
+ch.queue_declare(queue=&quot;message_queue&quot;, durable=True, exclusive=False, auto_delete=False)
+
+ch.queue_bind(queue=&quot;message_queue&quot;, exchange=&quot;test_x&quot;, routing_key=&quot;routing_key&quot;)
+
+ch.basic_publish(exchange=&quot;test_x&quot;, routing_key=&quot;routing_key&quot;, body=&quot;Hellooooooo!!!!!&quot;)
+conn.close()
+asyncore.loop()
+}}}
+
+* consumer_test.py
+{{{
+import pika
+import asyncore
+
+conn = pika.AsyncoreConnection(pika.ConnectionParameters(&quot;localhost&quot;, virtual_host=&quot;myvhost&quot;))
+ch = conn.channel()
+# ch.queue_declare(queue=&quot;message_queue&quot;, durable=True, exclusive=False, auto_delete=False)
+
+while conn.is_alive():
+    r = ch.basic_get(queue = &quot;message_queue&quot;)
+    print r
+    if isinstance(r, pika.spec.Basic.GetEmpty):
+        break
+}}}</pre>
+</div>
+<div title="Screen" creator="YourName" modifier="YourName" created="201007191201" modified="201007191348" changecount="4">
+<pre>* Change default command key
+{{{
+&gt; cat ~/.screenrc
+escape ^Jj
+
+# or from the command line
+&gt; screen -e^Jj
+}}}</pre>
 </div>
 <div title="SiteSubtitle" creator="BarisMetin" modifier="BarisMetin" created="201005311343" changecount="1">
 <pre>personal web notebook</pre>
