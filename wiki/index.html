@@ -703,7 +703,7 @@ User                 baris
 ssh -N -T -L 5901:remote_host:5901 user@remote_host
 }}}</pre>
 </div>
-<div title="PageTemplate" creator="BarisMetin" modifier="BarisMetin" created="200701130013" modified="201005311342" changecount="1" server.page.revision="200708091512" server.host="tiddlythemes.com/empties/Blackicity.html" server.type="file">
+<div title="PageTemplate" creator="BarisMetin" modifier="BarisMetin" created="200701130013" modified="201005311342" server.type="file" server.host="tiddlythemes.com/empties/Blackicity.html" server.page.revision="200708091512" changecount="1">
 <pre>&lt;!--{{{--&gt;
 
 &lt;div id='topMenu' refresh='content' tiddler='MainMenu'&gt;&lt;/div&gt;
@@ -748,6 +748,60 @@ $overlapping_trigger$ LANGUAGE plpgsql;
 CREATE TRIGGER overlapping_trigger BEFORE INSERT OR UPDATE ON test_events FOR EACH ROW EXECUTE PROCEDURE overlapping_trigger();
 }}}
 </pre>
+</div>
+<div title="Python" creator="BarisMetin" modifier="BarisMetin" created="201007201242" modified="201007201255" changecount="9">
+<pre>* sys.getsizeof on Python 2.6.5 on a 32bit system
+{{{
+&gt;&gt;&gt; import sys
+&gt;&gt;&gt; sys.getsizeof({})
+140
+&gt;&gt;&gt; sys.getsizeof([])
+36
+&gt;&gt;&gt; sys.getsizeof(set())
+116
+
+# every new dict object uses at least 140 bytes. Reading the
+# dictobject.c in python's source I can say that this is not only
+# the overhead of the dict object, but when created dict object
+# allocates some memory for &quot;small&quot; dict sizes.
+
+&gt;&gt;&gt; sys.getsizeof({1:&quot;hello&quot;, 2:&quot;bonjour&quot;, 3:&quot;merhaba&quot;, 4:&quot;toto&quot;, 5:&quot;lala&quot;})
+140
+
+# above dict object still uses the same amount of memory, 5
+# PyDictElements is considered as &quot;small&quot; for the version of
+# python I'm using. Apparently, the definition of &quot;small&quot; is
+# implementation specific, we shouldn't rely on that.
+
+&gt;&gt;&gt; d = {}
+&gt;&gt;&gt; for i in range(10): d[i] = i
+...
+&gt;&gt;&gt; sys.getsizeof(d)
+524
+
+# 10 elements passes the boundry and dict object allocates
+# additional memory. At this point for &quot;big&quot; number of elements
+# dict object starts to use a primitive memory pool. I guess
+# (didn't check) something simillar to C++'s stl collection
+# classes.
+
+&gt;&gt;&gt; for i in range(20): d[i] = i
+...
+&gt;&gt;&gt; sys.getsizeof(d)
+524
+&gt;&gt;&gt; for i in range(50): d[i] = i
+...
+&gt;&gt;&gt; sys.getsizeof(d)
+1676
+&gt;&gt;&gt; for i in range(100): d[i] = i
+...
+&gt;&gt;&gt; sys.getsizeof(d)
+6284
+&gt;&gt;&gt; for i in range(150): d[i] = i
+...
+&gt;&gt;&gt; sys.getsizeof(d)
+6284
+}}}</pre>
 </div>
 <div title="RabbitMQ" creator="YourName" modifier="YourName" created="201007191547" modified="201007191601" changecount="5">
 <pre>AMQP basics: http://blogs.digitar.com/jjww/2009/01/rabbits-and-warrens/
@@ -857,7 +911,7 @@ I'm not sure I need to list them here. Basically all I need is Pardus and I'll h
 [[http://www.scifihifi.com/cocoalicious/ Cocoalicious]]: Del.icio.us client.
 </pre>
 </div>
-<div title="StyleSheet" creator="BarisMetin" modifier="BarisMetin" created="200701130013" modified="201005311342" changecount="3" server.page.revision="200708091512" server.host="tiddlythemes.com/empties/Blackicity.html" server.type="file">
+<div title="StyleSheet" creator="BarisMetin" modifier="BarisMetin" created="200701130013" modified="201005311342" server.type="file" server.host="tiddlythemes.com/empties/Blackicity.html" server.page.revision="200708091512" changecount="3">
 <pre>/*{{{*/
 /*Blackicity Theme for TiddlyWiki*/
 /*Design and CSS by Saq Imtiaz*/
