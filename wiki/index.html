@@ -565,7 +565,7 @@ http://stackoverflow.com/questions/2112256/emacs-custom-command-line-argument/21
  (add-to-list 'command-switch-alist '(&quot;-my_argument&quot; . my-argument-fn))
 }}}</pre>
 </div>
-<div title="French" creator="BarisMetin" modifier="BarisMetin" created="201005311326" modified="201007181712" changecount="2">
+<div title="French" creator="BarisMetin" modifier="YourName" created="201005311326" modified="201009220312" changecount="3">
 <pre>''Les radios fran&#231;aises sur l'internet''
 
 http://www.listenlive.eu/france.html
@@ -583,6 +583,10 @@ http://admi.net/epv/modeles.html
 ''Certificat de cession automobile''
 
 http://www.clicauto.fr/certificat-cession-automobile/form
+
+-----
+D&#233;cret n&#176;86-83 du 17 janvier 1986 relatif aux dispositions g&#233;n&#233;rales applicables aux agents non titulaires de l'Etat pris pour l'application de l'article 7 de la loi n&#176; 84-16 du 11 janvier 1984 portant dispositions statutaires relatives &#224; la fonction publique de l'Etat 
+http://www.legifrance.gouv.fr/affichTexte.do?cidTexte=LEGITEXT000006065701&amp;dateTexte=20100922
 </pre>
 </div>
 <div title="LinuxContainers" creator="YourName" modifier="YourName" created="201006071553" modified="201006071629" changecount="5">
@@ -683,7 +687,7 @@ This will run the sync:
 * Many small tips at [http://www.osxnotes.com OSXNotes.com]
 </pre>
 </div>
-<div title="OpenSSH" creator="BarisMetin" modifier="YourName" created="201007181704" modified="201007191349" changecount="8">
+<div title="OpenSSH" creator="BarisMetin" modifier="YourName" created="201007181704" modified="201009301245" changecount="9">
 <pre>* Use a proxy host for ssh
 {{{
 &gt; cat ~/.ssh/config
@@ -706,6 +710,22 @@ User                 baris
 * Local port forwarding
 {{{
 ssh -N -T -L 5901:remote_host:5901 user@remote_host
+}}}
+
+* Ssh escape char and commands
+{{{
+# ~?
+Supported escape sequences:
+  ~.  - terminate connection (and any multiplexed sessions)
+  ~B  - send a BREAK to the remote system
+  ~C  - open a command line
+  ~R  - Request rekey (SSH protocol 2 only)
+  ~^Z - suspend ssh
+  ~#  - list forwarded connections
+  ~&amp;  - background ssh (when waiting for connections to terminate)
+  ~?  - this message
+  ~~  - send the escape character by typing it twice
+(Note that escapes are only recognized immediately after newline.)
 }}}</pre>
 </div>
 <div title="PageTemplate" creator="BarisMetin" modifier="BarisMetin" created="200701130013" modified="201005311342" changecount="1" server.page.revision="200708091512" server.host="tiddlythemes.com/empties/Blackicity.html" server.type="file">
