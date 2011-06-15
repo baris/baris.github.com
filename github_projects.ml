@@ -25,7 +25,7 @@ let page_header_templ user =
   "<link href=\"projects.css\" rel=\"stylesheet\" type=\"text/css\" />" ^
   "<script type=\"text/javascript\">" ^
   "var _gaq = _gaq || [];" ^
-  "_gaq.push(['_setAccount', 'UA-5464161-2']);" ^
+  "_gaq.push(['_setAccount', 'UA-23994270-1']);" ^
   "_gaq.push(['_trackPageview']);" ^
   "(function() {" ^
   "var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;" ^
